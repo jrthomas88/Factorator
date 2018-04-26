@@ -1,0 +1,7 @@
+Factorization Results
+
+8276587841950160651 = 2746671847 * 3013315133
+
+17 seconds, 207 millis
+Bit length: 32
+Winning algorithm: Pollard's
