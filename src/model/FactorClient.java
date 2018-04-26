@@ -323,7 +323,7 @@ public class FactorClient {
 
         ClientListener() {
             try {
-                socketListener = new ServerSocket(0);
+                socketListener = new ServerSocket(0,3,null);
                 myPort = socketListener.getLocalPort();
                 myAddress = InetAddress.getLocalHost().getHostName();
 

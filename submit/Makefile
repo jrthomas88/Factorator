@@ -27,3 +27,7 @@ clean:
 mkdir:
 	rm -f -r model
 	mkdir ./model
+
+move:
+	rm -f *.java
+	cp ../src/model/*.java ./
