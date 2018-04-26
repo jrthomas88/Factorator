@@ -7,6 +7,7 @@ import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.Semaphore;
 
 /**
  * FactorClient.java
@@ -39,6 +40,8 @@ public class FactorClient {
     private int myPort;
     private String myAddress;
 
+    private Semaphore waitForListener;
+
 
     /**
      * FactorClient
@@ -50,6 +53,12 @@ public class FactorClient {
      */
 
     public FactorClient(String host) {
+        waitForListener = new Semaphore(1);
+        try {
+            waitForListener.acquire();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         serverAddress = host;
         type = FactorType.NONE; // no algorithm until a server decides
         this.data = new FactorData(null);
@@ -57,7 +66,12 @@ public class FactorClient {
         startListener();
 
         try {
-            this.data.setClientAddress(myAddress);
+            waitForListener.acquire();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
             socket = new Socket(host, FactorServer.SERVERPORT);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket
                     .getOutputStream());
@@ -331,6 +345,7 @@ public class FactorClient {
                 System.out.println("Client creating socket on " + myAddress + " " +
                                    "on port " + myPort);
 
+                waitForListener.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
