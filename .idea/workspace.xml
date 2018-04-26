@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="417b6950-6622-494a-ba15-2109e6425ab5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/model/FactorClient.java" afterPath="$PROJECT_DIR$/src/model/FactorClient.java" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorClient$ClientListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorClient$ClientReader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorData.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorMath.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorServer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorServer$FactorLauncher.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorServer$ServerListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorServer$ServerReader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorSubServer$ServerListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorSubServer$ServerReader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorSubServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/FactorType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/Makefile" afterPath="$PROJECT_DIR$/submit/Makefile" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorClient$ClientListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorClient$ClientReader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorData.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorMath.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorServer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorServer$FactorLauncher.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorServer$ServerListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorServer$ServerReader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorSubServer$ServerListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorSubServer$ServerReader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorSubServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/submit/model/FactorType.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/model/FactorServer.java" afterPath="$PROJECT_DIR$/src/model/FactorServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FactorClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FactorClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/FactorClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="323" column="26" lean-forward="true" selection-start-line="323" selection-start-column="26" selection-end-line="323" selection-end-column="26" />
+            <state relative-caret-position="165">
+              <caret line="327" column="69" lean-forward="false" selection-start-line="327" selection-start-column="69" selection-end-line="327" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#11728#11729#0" expanded="true" />
@@ -124,15 +95,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FactorServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FactorServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/FactorServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="266" column="55" lean-forward="true" selection-start-line="266" selection-start-column="16" selection-end-line="266" selection-end-column="55" />
+            <state relative-caret-position="171">
+              <caret line="265" column="82" lean-forward="false" selection-start-line="265" selection-start-column="82" selection-end-line="265" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#18031#18032#0" expanded="true" />
-                <element signature="e#18072#18073#0" expanded="true" />
+                <element signature="e#18117#18118#0" expanded="true" />
+                <element signature="e#18158#18159#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -202,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/model/FactorData.java" />
         <option value="$PROJECT_DIR$/src/model/FactorSubServer.java" />
         <option value="$PROJECT_DIR$/src/model/FactorSequential.java" />
-        <option value="$PROJECT_DIR$/src/model/FactorServer.java" />
         <option value="$PROJECT_DIR$/src/model/FactorClient.java" />
+        <option value="$PROJECT_DIR$/src/model/FactorServer.java" />
       </list>
     </option>
   </component>
@@ -534,7 +505,7 @@
       <workItem from="1524767070531" duration="508000" />
       <workItem from="1524767603502" duration="388000" />
       <workItem from="1524768014996" duration="10000" />
-      <workItem from="1524768359656" duration="2890000" />
+      <workItem from="1524768359656" duration="3110000" />
     </task>
     <servers />
   </component>
@@ -571,10 +542,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119525000" />
+    <option name="totallyTimeSpent" value="119745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1600" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -585,7 +557,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33709273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33709273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -655,8 +627,8 @@
           <caret line="366" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="588" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18031#18032#0" expanded="true" />
-            <element signature="e#18072#18073#0" expanded="true" />
+            <element signature="e#18117#18118#0" expanded="true" />
+            <element signature="e#18158#18159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -775,8 +747,8 @@
           <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="363" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18031#18032#0" expanded="true" />
-            <element signature="e#18072#18073#0" expanded="true" />
+            <element signature="e#18117#18118#0" expanded="true" />
+            <element signature="e#18158#18159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -875,8 +847,8 @@
           <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="363" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18031#18032#0" expanded="true" />
-            <element signature="e#18072#18073#0" expanded="true" />
+            <element signature="e#18117#18118#0" expanded="true" />
+            <element signature="e#18158#18159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -959,8 +931,8 @@
           <caret line="292" column="56" lean-forward="false" selection-start-line="292" selection-start-column="56" selection-end-line="292" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18031#18032#0" expanded="true" />
-            <element signature="e#18072#18073#0" expanded="true" />
+            <element signature="e#18117#18118#0" expanded="true" />
+            <element signature="e#18158#18159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1057,8 +1029,8 @@
           <caret line="324" column="41" lean-forward="true" selection-start-line="324" selection-start-column="41" selection-end-line="324" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18031#18032#0" expanded="true" />
-            <element signature="e#18072#18073#0" expanded="true" />
+            <element signature="e#18117#18118#0" expanded="true" />
+            <element signature="e#18158#18159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1229,18 +1201,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/FactorServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="266" column="55" lean-forward="true" selection-start-line="266" selection-start-column="16" selection-end-line="266" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#18031#18032#0" expanded="true" />
-            <element signature="e#18072#18073#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/timingTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1269,12 +1229,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/FactorClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="323" column="26" lean-forward="true" selection-start-line="323" selection-start-column="26" selection-end-line="323" selection-end-column="26" />
+        <state relative-caret-position="165">
+          <caret line="327" column="69" lean-forward="false" selection-start-line="327" selection-start-column="69" selection-end-line="327" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#11728#11729#0" expanded="true" />
             <element signature="e#11769#11770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/FactorServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="265" column="82" lean-forward="false" selection-start-line="265" selection-start-column="82" selection-end-line="265" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#18117#18118#0" expanded="true" />
+            <element signature="e#18158#18159#0" expanded="true" />
           </folding>
         </state>
       </provider>

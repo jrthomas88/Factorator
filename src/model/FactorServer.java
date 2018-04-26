@@ -263,6 +263,8 @@ public class FactorServer {
                 sshost = pollardhost;
             }
 
+            System.out.println("connecting to " + clientAdd + " at port " + portNo);
+
             try {
                 socket = new Socket(clientAdd, portNo);
             } catch (IOException e) {
