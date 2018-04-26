@@ -57,6 +57,7 @@ public class FactorClient {
         startListener();
 
         try {
+            this.data.setClientAddress(myAddress);
             socket = new Socket(host, FactorServer.SERVERPORT);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket
                     .getOutputStream());
