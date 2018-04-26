@@ -1,0 +1,7 @@
+Factorization Results
+
+129620308423003 = 9962387 * 13010969
+
+0 seconds, 843 millis
+Bit length: 24
+Winning algorithm: TD2
