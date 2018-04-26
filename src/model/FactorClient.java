@@ -72,6 +72,7 @@ public class FactorClient {
         }
 
         try {
+            data.setClientAddress(InetAddress.getLocalHost().getHostName());
             socket = new Socket(host, FactorServer.SERVERPORT);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket
                     .getOutputStream());
@@ -338,7 +339,7 @@ public class FactorClient {
 
         ClientListener() {
             try {
-                socketListener = new ServerSocket(0,3,null);
+                socketListener = new ServerSocket(0, 3, null);
                 myPort = socketListener.getLocalPort();
                 myAddress = InetAddress.getLocalHost().getHostName();
 
