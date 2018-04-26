@@ -247,8 +247,8 @@ public class FactorServer {
         } else if (message.equals("new client")) {
 
             int portNo = data.getClientPort();
-            data = prepareData();
             String clientAdd = data.getClientAddress();
+            data = prepareData();
             FactorType type = data.getType();
 
             String sshost = null;

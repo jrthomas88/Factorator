@@ -57,8 +57,8 @@ public class FactorClient {
         data.setMessage("new client");
         startListener();
 
-        System.out.println("My address: " + myAddress);
         data.setClientAddress(myAddress);
+        System.out.println("My address: " + data.getClientAddress());
 
         try {
             socket = new Socket(host, FactorServer.SERVERPORT);
@@ -66,6 +66,7 @@ public class FactorClient {
                     .getOutputStream());
 
             outputStream.writeObject(data);
+            outputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
