@@ -17,12 +17,12 @@
       <file leaf-file-name="FactorClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/FactorClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="77" column="39" lean-forward="false" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+            <state relative-caret-position="210">
+              <caret line="60" column="41" lean-forward="false" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12252#12253#0" expanded="true" />
-                <element signature="e#12293#12294#0" expanded="true" />
+                <element signature="e#11830#11831#0" expanded="true" />
+                <element signature="e#11871#11872#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -31,8 +31,8 @@
       <file leaf-file-name="FactorData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/FactorData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="280" column="41" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="383" column="24" lean-forward="false" selection-start-line="383" selection-start-column="18" selection-end-line="383" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2845#2846#0" expanded="true" />
@@ -97,7 +97,7 @@
       <file leaf-file-name="FactorServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/FactorServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="329">
               <caret line="265" column="82" lean-forward="false" selection-start-line="265" selection-start-column="82" selection-end-line="265" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -121,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Syst</find>
       <find>factor</find>
       <find>start</find>
       <find>factor found</find>
@@ -147,10 +146,11 @@
       <find>myAddress</find>
       <find>myPort</find>
       <find>new client</find>
-      <find>new clie</find>
       <find>listener</find>
       <find>myAdd</find>
       <find>new cl</find>
+      <find>new clie</find>
+      <find>client</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -504,7 +504,7 @@
       <workItem from="1524767070531" duration="508000" />
       <workItem from="1524767603502" duration="388000" />
       <workItem from="1524768014996" duration="10000" />
-      <workItem from="1524768359656" duration="4120000" />
+      <workItem from="1524768359656" duration="4463000" />
     </task>
     <servers />
   </component>
@@ -541,11 +541,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120755000" />
+    <option name="totallyTimeSpent" value="121098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1600" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -556,7 +555,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33709273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33709273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -676,8 +675,8 @@
           <caret line="315" column="9" lean-forward="false" selection-start-line="271" selection-start-column="7" selection-end-line="315" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12252#12253#0" expanded="true" />
-            <element signature="e#12293#12294#0" expanded="true" />
+            <element signature="e#11830#11831#0" expanded="true" />
+            <element signature="e#11871#11872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -776,8 +775,8 @@
           <caret line="315" column="9" lean-forward="false" selection-start-line="271" selection-start-column="7" selection-end-line="315" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12252#12253#0" expanded="true" />
-            <element signature="e#12293#12294#0" expanded="true" />
+            <element signature="e#11830#11831#0" expanded="true" />
+            <element signature="e#11871#11872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -876,8 +875,8 @@
           <caret line="219" column="16" lean-forward="false" selection-start-line="219" selection-start-column="7" selection-end-line="219" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12252#12253#0" expanded="true" />
-            <element signature="e#12293#12294#0" expanded="true" />
+            <element signature="e#11830#11831#0" expanded="true" />
+            <element signature="e#11871#11872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -958,8 +957,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12252#12253#0" expanded="true" />
-            <element signature="e#12293#12294#0" expanded="true" />
+            <element signature="e#11830#11831#0" expanded="true" />
+            <element signature="e#11871#11872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1040,8 +1039,8 @@
           <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12252#12253#0" expanded="true" />
-            <element signature="e#12293#12294#0" expanded="true" />
+            <element signature="e#11830#11831#0" expanded="true" />
+            <element signature="e#11871#11872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1174,32 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/FactorData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="280" column="41" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
-            <element signature="e#8944#8945#0" expanded="true" />
-            <element signature="e#8971#8972#0" expanded="true" />
-            <element signature="e#9015#9016#0" expanded="true" />
-            <element signature="e#9047#9048#0" expanded="true" />
-            <element signature="e#9087#9088#0" expanded="true" />
-            <element signature="e#9123#9124#0" expanded="true" />
-            <element signature="e#9265#9266#0" expanded="true" />
-            <element signature="e#9298#9299#0" expanded="true" />
-            <element signature="e#9347#9348#0" expanded="true" />
-            <element signature="e#9391#9392#0" expanded="true" />
-            <element signature="e#9431#9432#0" expanded="true" />
-            <element signature="e#9467#9468#0" expanded="true" />
-            <element signature="e#9617#9618#0" expanded="true" />
-            <element signature="e#9651#9652#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/timingTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1228,7 +1201,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/FactorServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="329">
           <caret line="265" column="82" lean-forward="false" selection-start-line="265" selection-start-column="82" selection-end-line="265" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1238,14 +1211,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/FactorClient.java">
+    <entry file="file://$PROJECT_DIR$/src/model/FactorData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="77" column="39" lean-forward="false" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+        <state relative-caret-position="150">
+          <caret line="383" column="24" lean-forward="false" selection-start-line="383" selection-start-column="18" selection-end-line="383" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12252#12253#0" expanded="true" />
-            <element signature="e#12293#12294#0" expanded="true" />
+            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#2872#2873#0" expanded="true" />
+            <element signature="e#8944#8945#0" expanded="true" />
+            <element signature="e#8971#8972#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9047#9048#0" expanded="true" />
+            <element signature="e#9087#9088#0" expanded="true" />
+            <element signature="e#9123#9124#0" expanded="true" />
+            <element signature="e#9265#9266#0" expanded="true" />
+            <element signature="e#9298#9299#0" expanded="true" />
+            <element signature="e#9347#9348#0" expanded="true" />
+            <element signature="e#9391#9392#0" expanded="true" />
+            <element signature="e#9431#9432#0" expanded="true" />
+            <element signature="e#9467#9468#0" expanded="true" />
+            <element signature="e#9617#9618#0" expanded="true" />
+            <element signature="e#9651#9652#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/FactorClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="60" column="41" lean-forward="false" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11830#11831#0" expanded="true" />
+            <element signature="e#11871#11872#0" expanded="true" />
           </folding>
         </state>
       </provider>
