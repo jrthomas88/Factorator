@@ -45,9 +45,18 @@ public class FactorSubServer {
         pollardBase = BigInteger.valueOf(2);
         pollardUBound = BigInteger.valueOf(100);
         pollardLBound = BigInteger.ONE;
+        printInfo();
         ServerListener listener = new ServerListener();
         Thread listenThread = new Thread(listener);
         listenThread.start();
+    }
+
+    private void printInfo() {
+        System.out.println("*-----------------------------*");
+        System.out.println("*       FactorSubServer       *");
+        System.out.println("*-----------------------------*");
+        System.out.println("\nMain subserver for " + FactorType.toString(type));
+        System.out.println("\n*-----------------------------*\n");
     }
 
     public boolean isReady() {
@@ -85,7 +94,7 @@ public class FactorSubServer {
                 int port = client.getPort();
                 String address = client.getInetAddress().getHostAddress();
                 try {
-                    client = new Socket(address,port);
+                    client = new Socket(address, port);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -111,11 +120,7 @@ public class FactorSubServer {
                 incrementAmount = incrementAmount.divide(BigInteger.valueOf
                         (clientCount));
                 incrementAmount = incrementAmount.min(BigInteger.valueOf
-                        (100_000));
-
-                System.out.println("Increment amount is " +
-                                   incrementAmount + ", Lower bound is " +
-                                   "" + tdLowerBound + ", Upper bound is " + tdUpperBound);
+                        (100_000_000));
 
                 System.out.println("Sending data to clients");
                 for (Socket client : clients) {
@@ -125,10 +130,6 @@ public class FactorSubServer {
                     } else {
                         tdLowerBound = tdUpperBound.subtract(incrementAmount);
                     }
-
-                    System.out.println("sending bounds of " + tdLowerBound + " to" +
-                                       " " + tdUpperBound);
-                    System.out.println("Socket #" + client.getPort());
 
                     data.setUpperBoundTD(tdUpperBound);
                     data.setLowerBoundTD(tdLowerBound);

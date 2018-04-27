@@ -103,6 +103,7 @@ public class FactorServer {
         System.out.println("\nn = " + n);
         System.out.println("p = " + p);
         System.out.println("q = " + q);
+        System.out.println("\n*-----------------------------*\n");
 
     }
 
@@ -309,8 +310,6 @@ public class FactorServer {
 
             FactorType type = data.getType();
             String hostname = message.substring(6);
-
-            System.out.println("Received hostname: " + hostname);
 
             if (type == FactorType.TD2Server) {
                 td2host = hostname;

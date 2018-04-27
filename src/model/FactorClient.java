@@ -51,6 +51,8 @@ public class FactorClient {
 
     public FactorClient(String host) {
 
+        printInfo(host);
+
         serverAddress = host;
         type = FactorType.NONE; // no algorithm until a server decides
         this.data = new FactorData(null);
@@ -92,6 +94,14 @@ public class FactorClient {
         String host = args[0];
 
         FactorClient client = new FactorClient(host);
+    }
+
+    private void printInfo(String hostname) {
+        System.out.println("*-----------------------------*");
+        System.out.println("*         FactorClient        *");
+        System.out.println("*-----------------------------*");
+        System.out.println("\nConnecting to main server at " + hostname);
+        System.out.println("\n*-----------------------------*\n");
     }
 
     private void startListener() {
@@ -165,12 +175,8 @@ public class FactorClient {
     // factor.  Factoring is controlled by the FactorMath class.
     private void factorTD2() {
 
-        System.out.println("Factoring using TD2");
-
         BigInteger num = data.getNum(); // the number to factor
         BigInteger[] bounds = data.getTDBounds(); // the upper/lower bounds
-
-        System.out.println("Bounds are " + bounds[0] + " to " + bounds[1]);
 
         // factor num
         BigInteger factor = FactorMath.findFactorTD2(num, bounds[0], bounds[1]);
@@ -183,8 +189,6 @@ public class FactorClient {
     // Use trial-division counting down from sqrt(num) to determine if a number
     // is a factor.  Factoring is controlled by the FactorMath class.
     private void factorTDRN() {
-
-        System.out.println("Factoring using TDRN");
 
         BigInteger num = data.getNum(); // number to factor
         BigInteger[] bounds = data.getTDBounds(); // upper or lower bounds

@@ -1,7 +1,7 @@
 Factorization Results
 
-1977374521 = 42463 * 46567
+13755652086641039123 = 3372162127 * 4079178749
 
-0 seconds, 41 millis
-Bit length: 16
-Winning algorithm: TD2
+0 seconds, 279 millis
+Bit length: 32
+Winning algorithm: Pollard's
