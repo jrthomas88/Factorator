@@ -10,6 +10,16 @@ import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * FactorSubServer.java
+ * <p>
+ * This object is created by a client when that client is one of the first
+ * four to connect to a given FactorServer.  Depending on the FactorType
+ * passed in with the FactorData object, this SubServer starts a ServerSocket
+ * at a well-known port number and listens for clients to connect with it.
+ * It keeps a list of all connected clients and sends to them info about a
+ * number to factor.
+ */
 public class FactorSubServer {
 
     public static final int TD2PORT = 12486;
@@ -17,27 +27,37 @@ public class FactorSubServer {
     public static final int FERMATPORT = 12458;
     public static final int POLLARDPORT = 11489;
     private FactorType type;
-    private boolean complete = false;
+    private boolean complete = false; // true when factoring is done
 
-    private List<Socket> clients;
+    private List<Socket> clients; // a list of client sockets
 
-    private Socket server;
+    private Socket server; // socket for main server
     private int socketPort;
     private String serverHost;
 
+    // bounds and info for TD algs
     private BigInteger tdLowerBound;
     private BigInteger tdUpperBound;
     private BigInteger incrementAmount;
 
+    // fermat starting value
     private BigInteger fermatStartValue;
 
+    // info for Pollard's
     private BigInteger pollardBase;
     private BigInteger pollardLBound;
     private BigInteger pollardUBound;
     private BigInteger pollardPower;
 
+    // equals true when listener ready to start
     private boolean ready = false;
 
+    /**
+     * FactorSubServer
+     * initialize all data values and create a server listener.
+     *
+     * @param data The FactorData object about what number to factor
+     */
     FactorSubServer(FactorData data) {
         clients = new LinkedList<>();
         type = data.getType();
@@ -51,6 +71,11 @@ public class FactorSubServer {
         listenThread.start();
     }
 
+    /**
+     * printInfo
+     * Just prints a display message to the terminal.  Has no functional
+     * value, just for presentation.
+     */
     private void printInfo() {
         System.out.println("*-----------------------------*");
         System.out.println("*       FactorSubServer       *");
@@ -59,18 +84,40 @@ public class FactorSubServer {
         System.out.println("\n*-----------------------------*\n");
     }
 
+    /**
+     * isReady
+     * Returns true once the listener is live and clients can start sending
+     * to it.
+     *
+     * @return whether listener is ready
+     */
     public boolean isReady() {
         return ready;
     }
 
+    /**
+     * setServerHost
+     * Create a connection to the main server and send information about my
+     * host name.  This allows the server to know where I am so it can send
+     * information to me later.
+     *
+     * @param hostname the location of the machine this SubServer is running on
+     */
     public void setServerHost(String hostname) {
         try {
+            // create socket to main server
             server = new Socket(hostname, FactorServer.SERVERPORT);
             serverHost = hostname;
             socketPort = FactorServer.SERVERPORT;
             FactorData data = new FactorData(null);
+
+            // "name:" tells server that this is a new SubServer
             String myname = "name:" + FactorType.asInt(type);
+
+            // get localHost information and add to data
             myname += InetAddress.getLocalHost().getHostAddress();
+
+            //send data to server
             data.setMessage(myname);
             data.setType(type);
             ObjectOutputStream outputStream = new ObjectOutputStream(server
@@ -82,13 +129,24 @@ public class FactorSubServer {
         }
     }
 
+    /**
+     * handleReadData
+     * Given a FactorData object read from a socket, examine that object and
+     * determine what actions need to be taken.  Information is found by the
+     * getMessage() method on FactorData.
+     *
+     * @param data the FactorData read from a socket
+     */
     private void handleReadData(FactorData data) {
         String message = data.getMessage();
 
         System.out.println("SubServer read message: " + message);
 
+        // if "quit", then notify all clients that they need to quit
         if (message.equals("quit")) {
             complete = true;
+            // skip 0 since it's the same machine I'm on.  When I exit, it'll
+            // also exit.
             for (int i = 1; i < clients.size(); i++) {
                 Socket client = clients.get(i);
                 int port = client.getPort();
@@ -100,9 +158,11 @@ public class FactorSubServer {
                 }
                 outputData(data, client);
             }
+            // then quit myself
             System.exit(0);
         }
 
+        // server has decided it's time to factor
         if (message.equals("start")) {
             int clientCount = clients.size();
 
@@ -116,12 +176,16 @@ public class FactorSubServer {
                 tdLowerBound = bounds[0];
                 tdUpperBound = bounds[1];
 
+                // set bounds
                 incrementAmount = tdUpperBound.subtract(tdLowerBound);
                 incrementAmount = incrementAmount.divide(BigInteger.valueOf
                         (clientCount));
+
                 incrementAmount = incrementAmount.min(BigInteger.valueOf
                         (100_000_000));
 
+
+                // send factoring data to clients
                 System.out.println("Sending data to clients");
                 for (Socket client : clients) {
 
@@ -129,6 +193,9 @@ public class FactorSubServer {
                         tdUpperBound = tdLowerBound.add(incrementAmount);
                     } else {
                         tdLowerBound = tdUpperBound.subtract(incrementAmount);
+
+                        System.out.println("Upper bound = " + tdUpperBound + ", " +
+                                           "Lower bound = " + tdLowerBound);
                     }
 
                     data.setUpperBoundTD(tdUpperBound);
@@ -144,6 +211,11 @@ public class FactorSubServer {
                         tdUpperBound = tdLowerBound.subtract(BigInteger.ONE);
                     }
                 }
+
+                /*--------------------*
+                    Fermat Factoring
+                 *--------------------*/
+
             } else if (type == FactorType.FERMATServer) {
                 fermatStartValue = data.getFermatStartVal();
                 long attempts = data.getAttempts();
@@ -157,6 +229,11 @@ public class FactorSubServer {
                     fermatStartValue = fermatStartValue.add(BigInteger
                             .valueOf(attempts));
                 }
+
+                /*--------------------------*
+                    Pollard's p-1 algorithm
+                 *--------------------------*/
+
             } else if (type == FactorType.POLLARDSServer) {
                 BigInteger[] bounds = data.getPollardsBounds();
                 pollardLBound = bounds[0];
@@ -172,6 +249,8 @@ public class FactorSubServer {
             }
         }
 
+        // a factor has been found
+        // send data to server.  It'll handle it from there.
         if (message.equals("factor found")) {
             System.out.println("Sending data to Server");
             setServer();
@@ -185,6 +264,9 @@ public class FactorSubServer {
         }
     }
 
+    // outputData
+    // given a data object and a client, output the data file to the machine
+    // associated with that socket.
     private void outputData(FactorData data, Socket client) {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream
@@ -196,6 +278,8 @@ public class FactorSubServer {
         }
     }
 
+    // setServer
+    // Establish the socket in which the main server is located
     private void setServer() {
         try {
             server = new Socket(serverHost, socketPort);
@@ -204,16 +288,9 @@ public class FactorSubServer {
         }
     }
 
-    private void sendData(Socket socket, FactorData data) {
-        try {
-            ObjectOutputStream outputStream = new ObjectOutputStream(socket.
-                    getOutputStream());
-            outputStream.writeObject(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    // ServerListener
+    // Creates a listener that listens on a well-known port for connections
+    // to this server.
     private class ServerListener implements Runnable {
 
         private int port;
@@ -359,7 +436,7 @@ public class FactorSubServer {
                     mySocket = new Socket(data.getClientAddress(), data
                             .getClientPort());
 
-                    sendData(mySocket, data);
+                    outputData(data, mySocket);
                 }
 
                 handleReadData(data);

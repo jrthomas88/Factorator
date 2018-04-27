@@ -201,7 +201,7 @@ public class FactorMath {
         BigInteger i = end;
 
         // while i >= 2
-        while (i.compareTo(TWO) >= 0) {
+        while (i.compareTo(start) >= 0) {
 
             // get gcd of num and i
             // use gcd in case i is a multiple of a factor

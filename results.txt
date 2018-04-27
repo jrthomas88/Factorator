@@ -1,7 +1,7 @@
 Factorization Results
 
-13755652086641039123 = 3372162127 * 4079178749
+16505505059095589029 = 3957123761 * 4171086389
 
-0 seconds, 279 millis
+28 seconds, 614 millis
 Bit length: 32
-Winning algorithm: Pollard's
+Winning algorithm: TDRN
