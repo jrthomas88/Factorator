@@ -163,7 +163,7 @@ public class FactorSubServer {
         }
 
         // server has decided it's time to factor
-        if (message.equals("start")) {
+        if (message.equals("start") || message.equals("new value")) {
             int clientCount = clients.size();
 
             /*--------------------------------
@@ -268,7 +268,12 @@ public class FactorSubServer {
     // given a data object and a client, output the data file to the machine
     // associated with that socket.
     private void outputData(FactorData data, Socket client) {
+        String address = client.getLocalAddress().getHostName();
+        int port = client.getPort();
+        clients.remove(client);
         try {
+            client = new Socket(address,port);
+            clients.add(client);
             ObjectOutputStream outputStream = new ObjectOutputStream
                     (client.getOutputStream());
             outputStream.writeObject(data);

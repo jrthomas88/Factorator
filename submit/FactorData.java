@@ -83,6 +83,12 @@ public class FactorData implements Serializable {
 
     }
 
+    /**
+     * getPollardBase
+     * Return the base used in Pollard's p-1 algorithm
+     *
+     * @return base, the Pollard's p-1 base
+     */
     public BigInteger getPollardBase() {
         return base;
     }
@@ -365,42 +371,102 @@ public class FactorData implements Serializable {
 
     }
 
+    /**
+     * getType
+     * Return the algorithm type this data is associated with
+     *
+     * @return FactorType enum of algorithm type
+     */
     public FactorType getType() {
         return type;
     }
 
+    /**
+     * setType
+     * Set which algorith type this data should use
+     *
+     * @param type the FactorType enum to set to
+     */
     public void setType(FactorType type) {
         this.type = type;
     }
 
+    /**
+     * getSubservername
+     * Get the machien host that holds this sub-server name
+     *
+     * @return the String of the subserver machine host
+     */
     public String getSubservername() {
         return subservername;
     }
 
+    /**
+     * setSubservername
+     * Set what machine this sub-server is located at
+     *
+     * @param subservername the machine host the sub-server is located at
+     */
     public void setSubservername(String subservername) {
         this.subservername = subservername;
     }
 
+    /**
+     * getClientPort
+     * Return the port number of the client this data came from
+     *
+     * @return int of the client's port number
+     */
     public int getClientPort() {
         return clientPort;
     }
 
+    /**
+     * setClientPort
+     * Set the port number this data is coming from
+     *
+     * @param clientPort this machine's server port number
+     */
     public void setClientPort(int clientPort) {
         this.clientPort = clientPort;
     }
 
+    /**
+     * getClientAddress
+     * return the host machine this client is running on
+     *
+     * @return this client's host machine name
+     */
     public String getClientAddress() {
         return clientAddress;
     }
 
+    /**
+     * setClientAddress
+     * set the machine name that this client is running on
+     *
+     * @param clientAddress this machine's host name
+     */
     public void setClientAddress(String clientAddress) {
         this.clientAddress = clientAddress;
     }
 
+    /**
+     * getBoundAmount
+     * returns the bound used for Pollard's
+     *
+     * @return BigInteger of the last used Pollard bound
+     */
     public BigInteger getBoundAmount() {
         return boundAmount;
     }
 
+    /**
+     * setBoundAmount
+     * Set the bound last used in Pollard's p-1 algorithm
+     *
+     * @param boundAmount the bound used in pollard's
+     */
     public void setBoundAmount(BigInteger boundAmount) {
         this.boundAmount = boundAmount;
     }

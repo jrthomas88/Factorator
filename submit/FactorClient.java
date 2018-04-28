@@ -50,11 +50,17 @@ public class FactorClient {
      */
 
     public FactorClient(String host) {
+
+        printInfo(host);
+
         serverAddress = host;
         type = FactorType.NONE; // no algorithm until a server decides
         this.data = new FactorData(null);
         data.setMessage("new client");
         startListener();
+
+        data.setClientAddress(myAddress);
+        System.out.println("My address: " + data.getClientAddress());
 
         try {
             socket = new Socket(host, FactorServer.SERVERPORT);
@@ -62,6 +68,7 @@ public class FactorClient {
                     .getOutputStream());
 
             outputStream.writeObject(data);
+            outputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,7 +81,8 @@ public class FactorClient {
 
     /**
      * main
-     * Connects to a server and creates a client
+     * Connects to a server and creates a client.  For launching
+     * The program.
      *
      * @param args the command line arguments
      */
@@ -84,15 +92,35 @@ public class FactorClient {
             System.err.println("No host name provided\njava FactorClient " +
                                "[hostname]");
         }
-        String host = args[0];
+        String host = args[0]; // hostname of server location
 
         FactorClient client = new FactorClient(host);
     }
 
+    /**
+     * printInfo
+     * Merely prints some display text to the terminal.  Serves no practical
+     * function except for aesthetics.
+     *
+     * @param hostname the machine where the server host is located
+     */
+    private void printInfo(String hostname) {
+        System.out.println("*-----------------------------*");
+        System.out.println("*         FactorClient        *");
+        System.out.println("*-----------------------------*");
+        System.out.println("\nConnecting to main server at " + hostname);
+        System.out.println("\n*-----------------------------*\n");
+    }
+
+    /**
+     * startListener
+     * Launches the main listener.  The listener will read inputs sent to a
+     * created server socket which tells this client what actions to perform.
+     */
     private void startListener() {
-        ClientListener listener = new ClientListener();
+        ClientListener listener = new ClientListener(); // server listener obj
         listenThread = new Thread(listener);
-        listenThread.start();
+        listenThread.start(); // start listener in its own thread
         data.setClientPort(myPort);
         data.setClientAddress(myAddress);
     }
@@ -160,12 +188,8 @@ public class FactorClient {
     // factor.  Factoring is controlled by the FactorMath class.
     private void factorTD2() {
 
-        System.out.println("Factoring using TD2");
-
         BigInteger num = data.getNum(); // the number to factor
         BigInteger[] bounds = data.getTDBounds(); // the upper/lower bounds
-
-        System.out.println("Bounds are " + bounds[0] + " to " + bounds[1]);
 
         // factor num
         BigInteger factor = FactorMath.findFactorTD2(num, bounds[0], bounds[1]);
@@ -178,8 +202,6 @@ public class FactorClient {
     // Use trial-division counting down from sqrt(num) to determine if a number
     // is a factor.  Factoring is controlled by the FactorMath class.
     private void factorTDRN() {
-
-        System.out.println("Factoring using TDRN");
 
         BigInteger num = data.getNum(); // number to factor
         BigInteger[] bounds = data.getTDBounds(); // upper or lower bounds
@@ -213,6 +235,8 @@ public class FactorClient {
         sendData();
     }
 
+    // setSubSocket
+    // Creates the socket to send data to this client's sub-server
     private void setSubSocket() {
         try {
             subsocket = new Socket(ssaddress, sserverport);
@@ -221,8 +245,11 @@ public class FactorClient {
         }
     }
 
+    // senddata
+    // set the data into the FactorData object and send that data to this
+    // client's sub-server.
     private void sendData() {
-        setSubSocket();
+        setSubSocket(); // establish socket with sserver
         data.setClientPort(myPort);
         data.setClientAddress(myAddress);
         data.setType(type);
@@ -317,13 +344,20 @@ public class FactorClient {
 
     }
 
+    // ClientListener
+    // This object runs in its own thread, reading inputs sent to it from
+    // other servers.  When receiving a connection, this creates a reader
+    // object in another thread which actually handles the data.
     private class ClientListener implements Runnable {
 
         private ServerSocket socketListener;
 
+        // ClientListener
+        // Create the ServerSocket that other machines can talk to and save
+        // the host and port information related to that port.
         ClientListener() {
             try {
-                socketListener = new ServerSocket(0);
+                socketListener = new ServerSocket(0, 3, null);
                 myPort = socketListener.getLocalPort();
                 myAddress = InetAddress.getLocalHost().getHostName();
 
@@ -335,6 +369,9 @@ public class FactorClient {
             }
         }
 
+        // run
+        // Accept inputs to this ServerSocket, then pass any connections to a
+        // ClientReader object to handle.  Then go back to listening.
         @Override
         public void run() {
             Socket s;
@@ -352,39 +389,53 @@ public class FactorClient {
         }
     }
 
+    // ClientReader
+    // This object is given a socket from ClientListener.  This object reads
+    // the data attached to that socket and handles it.
     private class ClientReader implements Runnable {
 
-        Socket mySocket;
+        Socket mySocket; // socket passed to this object
 
         ClientReader(Socket socket) {
             mySocket = socket;
         }
 
-
+        // run
+        // Read the InputStream from the socket and get the FactorData from
+        // it.  If the message wants to quit or run, handle that.  Also can
+        // handle information about starting up this client or whether to
+        // also launch a SubServer.  Message data is obtained by the
+        // getMessage() method on FactorData.
         @Override
         public void run() {
             FactorData factorData;
 
             try {
+                // get input stream
                 ObjectInputStream inputStream = new ObjectInputStream(mySocket
                         .getInputStream());
+                // data sent by other servers or clients
                 factorData = (FactorData) inputStream.readObject();
+                // message attached to Data object
                 String message = factorData.getMessage();
 
                 System.out.println("Client reader read object, message = " +
                                    "" + message);
 
+                // when we're done, this kills the program
                 if (message.equals("quit")) {
                     completed = true;
                     System.out.println("Client quitting");
                     System.exit(0);
                 }
 
+                // the server is ready to start factoring
                 if (message.equals("run")) {
                     data = factorData;
                     startFactoring();
                 }
 
+                // we have received the name the subserver host is located at
                 if (message.length() >= 5 && message.substring(0, 5)
                         .equals("name:")) {
                     String hostname = message.substring(5);
@@ -419,10 +470,12 @@ public class FactorClient {
 
                 }
 
+                // we have a new value of n for our FactorData
                 if (message.equals("new value")) {
                     FactorType type = factorData.getType();
                     FactorSubServer sserver = null;
 
+                    // Handle whether to create sub-server
                     if (type == FactorType.TD2Server) {
                         sserver = new FactorSubServer(factorData);
                         ssaddress = InetAddress.getLocalHost().getHostAddress();
@@ -447,12 +500,14 @@ public class FactorClient {
                         sserverport = FactorSubServer.POLLARDPORT;
                         data.setType(FactorType.POLLARDS);
                         setType(FactorType.POLLARDS);
-                    } else {
+                    } else { // get info about sub-server
                         setType(type);
                         ssaddress = factorData.getSubservername();
                         sserverport = FactorType.getAddress(type);
                     }
 
+                    // if sub-server is null, sleep for a bit in case the
+                    // sub-server isn't running yet.
                     if (sserver != null) {
                         while (!sserver.isReady()) {
                             Thread.sleep(1000);

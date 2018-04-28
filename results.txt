@@ -1,7 +1,7 @@
 Factorization Results
 
-16505505059095589029 = 3957123761 * 4171086389
+9483300350107031259 = 3 * 3 * 7 * 63 * 89 * 157 * 157 * 4396033 * 4396033
 
-28 seconds, 614 millis
-Bit length: 32
+0 seconds, 364 millis
+Bit length: 64
 Winning algorithm: TDRN
